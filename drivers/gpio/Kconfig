@@ -1715,6 +1715,12 @@ config GPIO_TIANTONG
 	help
 	This adds support for tiantong modem.
 
+config GPIO_JINGSHANG
+	tristate "JINGSHANG satellite Modem driver"
+	default n
+	help
+	This adds support for Jingshang satellite modem.
+
 endmenu
 
 endif
