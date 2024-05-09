@@ -38,7 +38,6 @@
 #include <linux/of_irq.h>
 #include <linux/percpu.h>
 #include <linux/refcount.h>
-#include <linux/msm_rtb.h>
 #include <linux/wakeup_reason.h>
 
 #include <linux/irqchip.h>
@@ -1329,7 +1328,7 @@ register_class_err:
     return ret;
 }
 #endif
-static void __exit pm_debug_exit()
+static void __exit pm_debug_exit(void)
 {
 	int ret = 0;
 
