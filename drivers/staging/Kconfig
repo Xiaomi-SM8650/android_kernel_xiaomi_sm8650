@@ -80,6 +80,8 @@ source "drivers/staging/fieldbus/Kconfig"
 
 source "drivers/staging/qlge/Kconfig"
 
+source "drivers/staging/binder_prio/Kconfig"
+
 source "drivers/staging/vme_user/Kconfig"
 
 source "drivers/staging/miev/Kconfig"

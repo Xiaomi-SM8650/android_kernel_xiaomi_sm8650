@@ -1,0 +1,4 @@
+config BINDER_PRIO
+	tristate "Xiaomi binder prio"
+	default n
+
