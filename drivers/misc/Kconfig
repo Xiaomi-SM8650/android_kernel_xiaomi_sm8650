@@ -540,4 +540,5 @@ source "drivers/misc/pvpanic/Kconfig"
 source "drivers/misc/mchp_pci1xxxx/Kconfig"
 source "drivers/misc/hwid/Kconfig"
 source "drivers/misc/mi-power/Kconfig"
+source "drivers/misc/perf_helper/Kconfig"
 endmenu
