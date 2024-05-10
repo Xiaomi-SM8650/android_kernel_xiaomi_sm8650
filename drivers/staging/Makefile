@@ -34,3 +34,7 @@ obj-$(CONFIG_BINDER_PRIO) 	+= binder_prio/
 # MIUI ADD: MiSight_LogEnhance
 obj-$(CONFIG_MIEV)              += miev/
 # END MiSight_LogEnhance
+# MIUI ADD: Performance_LogEnhance
+obj-$(CONFIG_MI_LOG)       	+= mi-log/
+# END Performance_LogEnhance
+
