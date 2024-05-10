@@ -88,4 +88,6 @@ source "drivers/staging/miev/Kconfig"
 
 source "drivers/staging/mi-log/Kconfig"
 
+source "drivers/staging/mi-perf/Kconfig"
+
 endif # STAGING

@@ -1,0 +1,15 @@
+{
+  "presubmit": [
+     {
+       "name": "mi_mempool_test_host",
+       "file_patterns": ["mi_mempool\\.[ch]"]
+     }
+   ],
+   "postsubmit": [
+     {
+       "name": "mi_mempool_test_host",
+       "file_patterns": ["mi_mempool\\.[ch]"]
+     }
+   ]
+ }
+

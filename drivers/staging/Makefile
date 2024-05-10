@@ -37,4 +37,4 @@ obj-$(CONFIG_MIEV)              += miev/
 # MIUI ADD: Performance_LogEnhance
 obj-$(CONFIG_MI_LOG)       	+= mi-log/
 # END Performance_LogEnhance
-
+obj-y 				+= mi-perf/

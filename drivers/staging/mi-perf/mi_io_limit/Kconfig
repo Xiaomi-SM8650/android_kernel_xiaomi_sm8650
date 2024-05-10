@@ -1,0 +1,4 @@
+config MI_IO_LIMIT
+	tristate "mi buffer io limit"
+	default n
+
