@@ -20,11 +20,13 @@
 #define HW_BUILD_VERSION_MASK       0x000F0000
 
 char *SOC_22D_PRODUCTS[] = {
-	"aurora",
+	"shennong",
 	"houji",
 	"manet",
+	"aurora",
+	"suiren",
 	"ruyi",
-	"shennong"
+	"goku"
 };
 int SOC_22D_PRODUCT_CNT = sizeof(SOC_22D_PRODUCTS) / sizeof(char*);
 
@@ -82,6 +84,12 @@ char* product_name_get(void) {
 			product_count = SOC_22D_PRODUCT_CNT;
 			index = project - 1;
 			break;
+	    case 0x266: // SM8635
+	        if (project == 9)
+	            return "chenfeng";
+	        else if (project == 8)
+	            return "peridot";
+	        else goto unknown;
 		default:
 			goto unknown;
 	}
