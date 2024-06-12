@@ -45,8 +45,6 @@
 #include "syna_tcm2_testing.h"
 #endif
 
-#include "../touchpanel_notify/touchpanel_event_notify.h"
-
 #if (KERNEL_VERSION(5, 9, 0) <= LINUX_VERSION_CODE) || \
 	defined(HAVE_UNLOCKED_IOCTL)
 #define USE_UNLOCKED_IOCTL
@@ -887,22 +885,6 @@ exit:
 static struct kobj_attribute kobj_attr_gesture_coordinate =
 	__ATTR(gesture_coordinate, 0444, syna_sysfs_gesture_coordinate_show, NULL);
 
-
-static void touch_call_notifier_fp(struct fp_underscreen_info *fp_info)
-{
-	struct touchpanel_event event_data;
-
-	memset(&event_data, 0, sizeof(struct touchpanel_event));
-
-	event_data.touch_state = fp_info->touch_state;
-	event_data.area_rate = fp_info->area_rate;
-	event_data.x = fp_info->x;
-	event_data.y = fp_info->y;
-
-	touchpanel_event_call_notifier(EVENT_ACTION_FOR_FINGPRINT,
-		   (void *)&event_data);
-}
-
 /**
  * fingerprint_trigger()
  *
@@ -943,12 +925,10 @@ static ssize_t syna_sysfs_fingerprint_trigger_store(struct kobject *kobj,
 			tcm->fp_info.y = y_pos;
 			tcm->fp_info.touch_state = 1;
 			tcm->is_fp_down = true;
-			touch_call_notifier_fp(&tcm->fp_info);
 			LOGE("screen on fingerprint down : (%d, %d)\n", tcm->fp_info.x, tcm->fp_info.y);
 		} else {
 			tcm->fp_info.touch_state = 0;
 			tcm->is_fp_down = false;
-			touch_call_notifier_fp(&tcm->fp_info);
 			LOGE("screen on fingerprint up : (%d, %d)\n", tcm->fp_info.x, tcm->fp_info.y);
 		}
 	} else {

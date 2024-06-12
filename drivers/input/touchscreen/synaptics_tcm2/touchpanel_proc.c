@@ -16,8 +16,6 @@
 #include <linux/syscalls.h>
 #include <linux/version.h>
 
-#include "../touchpanel_notify/touchpanel_event_notify.h"
-
 #include "touchpanel_autotest/touchpanel_autotest.h"
 #include "touch_comon_api/touch_comon_api.h"
 #include "tcm/synaptics_touchcom_func_base.h"
@@ -450,21 +448,6 @@ static ssize_t proc_coordinate_read(struct file *file, char __user *buffer,
 
 DECLARE_PROC_OPS(proc_coordinate_fops, simple_open, proc_coordinate_read, NULL, NULL);
 
-static void touch_call_notifier_fp(struct fp_underscreen_info *fp_info)
-{
-	struct touchpanel_event event_data;
-
-	memset(&event_data, 0, sizeof(struct touchpanel_event));
-
-	event_data.touch_state = fp_info->touch_state;
-	event_data.area_rate = fp_info->area_rate;
-	event_data.x = fp_info->x;
-	event_data.y = fp_info->y;
-
-	touchpanel_event_call_notifier(EVENT_ACTION_FOR_FINGPRINT,
-		   (void *)&event_data);
-}
-
 static ssize_t proc_fingerprint_trigger_write(struct file *file,
 					const char __user *buffer, size_t count, loff_t *ppos)
 {
@@ -495,12 +478,10 @@ static ssize_t proc_fingerprint_trigger_write(struct file *file,
 			tcm->fp_info.y = y_pos;
 			tcm->fp_info.touch_state = 1;
 			tcm->is_fp_down = true;
-			touch_call_notifier_fp(&tcm->fp_info);
 			TPD_INFO("screen on fingerprint down : (%d, %d)\n", tcm->fp_info.x, tcm->fp_info.y);
 		} else {
 			tcm->fp_info.touch_state = 0;
 			tcm->is_fp_down = false;
-			touch_call_notifier_fp(&tcm->fp_info);
 			TPD_INFO("screen on fingerprint up : (%d, %d)\n", tcm->fp_info.x, tcm->fp_info.y);
 		}
 	} else {
