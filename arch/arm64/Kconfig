@@ -2335,3 +2335,27 @@ source "drivers/acpi/Kconfig"
 source "arch/arm64/kvm/Kconfig"
 
 source "arch/arm64/gunyah/Kconfig"
+
+config TARGET_PRODUCT_HOUJI
+	bool "Target product is houji"
+	default n
+
+config TARGET_PRODUCT_SHENNONG
+	bool "Target product is shennong"
+	default n
+
+config TARGET_PRODUCT_AURORA
+	bool "Target product is aurora"
+	default n
+
+config TARGET_PRODUCT_MANET
+	bool "Target product is manet"
+	default n
+
+config TARGET_PRODUCT_GOKU
+	bool "Target product is goku"
+	default n
+
+config TARGET_PRODUCT_RUYI
+	bool "Target product is ruyi"
+	default n
