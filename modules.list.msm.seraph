@@ -9,9 +9,16 @@ smem.ko
 socinfo.ko
 clk-dummy.ko
 clk-qcom.ko
+cqhci.ko
+sdhci-msm.ko
 gdsc-regulator.ko
 cmd-db.ko
 qcom_rpmh.ko
+icc-bcm-voter.ko
+icc-rpmh.ko
+icc-debug.ko
+qnoc-qos.ko
+qnoc-seraph.ko
 stub-regulator.ko
 arm_smmu.ko
 iommu-logger.ko
@@ -26,3 +33,10 @@ qcom_iommu_debug.ko
 phy-qcom-emu.ko
 phy-generic.ko
 dwc3-msm.ko
+gcc-seraph.ko
+tcsrcc-seraph.ko
+mdt_loader.ko
+tmecom-intf.ko
+msm_qmp.ko
+qcom_aoss.ko
+qcom-ipcc.ko
