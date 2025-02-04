@@ -138,7 +138,7 @@ static struct qcom_icc_qosbox xm_usb3_0_qos = {
 	.num_ports = 1,
 	.offsets = { 0x10000 },
 	.config = &(struct qos_config) {
-		.prio = 2,
+		.prio = 0,
 		.urg_fwd = 0,
 		.prio_fwd_disable = 0,
 	},
